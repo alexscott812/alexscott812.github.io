@@ -151,7 +151,8 @@ const theme: Theme = {
       borderRadius: 'full',
       width: '2.5rem',
       height: '2.5rem',
-      p: 0
+      p: 0,
+      lineHeight: '0'
     }
   },
   cards: {
