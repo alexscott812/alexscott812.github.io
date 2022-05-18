@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
-import { Box, Card, Heading, Text, Button } from 'theme-ui';
-import { keyframes } from '@emotion/react';
+import { Box, Heading, Text } from 'theme-ui';
+import { Keyframes, keyframes } from '@emotion/react';
 
-const wave = keyframes`
+const wave: Keyframes = keyframes`
   0% { transform: rotate(0.0deg); }
   10% { transform: rotate(14.0deg); }
   20% { transform: rotate(-8.0deg); }
@@ -16,20 +16,27 @@ const wave = keyframes`
 const HeroCard = () => {
   return (
     <Box mb={6}>
-      <Card variant="sunken" p={[3,4,5]}>
-        <Heading sx={{ fontSize: [4,5,6], mb: 2 }}>
-          {`Hi, I'm Alex. `}
+      {/* <Card
+        variant="sunken"
+        p={[3,4,5]}
+        // sx={{
+        //   backgroundImage: t => `linear-gradient(to bottom right, ${t.colors?.primary}, ${t.colors?.secondary})`
+        // }}
+      > */}
+        <Heading sx={{ fontSize: [5,6], mb: 2 }}>
+          {`Hi, I'm `}
+          <span sx={{ color: 'primary' }}>
+            Alex
+          </span>
+          {'. '}
           <span sx={{ display: 'inline-block', animation: `${wave} 3s linear infinite` }}>
             👋
           </span>
         </Heading>
-        <Text as="p" mb={3}>
-          I'm a front end engineer currently based in Brooklyn, NY. I'm a front end engineer currently based in Brooklyn, NY. I'm a front end engineer currently based in Brooklyn, NY. 
+        <Text as="p">
+          {`I'm a front end developer currently based in Brooklyn, NY. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
         </Text>
-        <Button>
-          View Work
-        </Button>
-      </Card>
+      {/* </Card> */}
     </Box>
   );
 };

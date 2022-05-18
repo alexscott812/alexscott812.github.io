@@ -1,20 +1,23 @@
 /** @jsxImportSource theme-ui */
 import { Box, useColorMode, Heading, Button, Container } from 'theme-ui';
 
+const colorModes: string[] = ['light', 'dark', 'natural'];
+
 const Header = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   const handleToggleColorMode: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setColorMode(colorMode === 'light' ? 'dark' : 'light')
+    setColorMode(colorModes[(colorModes.indexOf(colorMode) + 1) % colorModes.length])
   };
 
   return (
     <Box
       sx={{
-        py: 3,
-        backdropFilter: 'blur(1rem)',
+        py: 2,
+        // backdropFilter: 'blur(1rem)',
+        bg: 'background',
         width: '100%',
-        position: 'fixed',
+        //position: 'fixed',
         zIndex: 1
       }}
     >
@@ -25,7 +28,7 @@ const Header = () => {
           aria-label="Toggle color mode"
           onClick={handleToggleColorMode}
         >
-          {`${colorMode === 'light' ? '☀️' : '🌙' }`}
+          {colorMode === 'light' ? '☀️' : colorMode === 'dark' ? '🌙' : '🌳'}
         </Button>
       </Container>
     </Box>
